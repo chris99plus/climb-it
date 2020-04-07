@@ -1,0 +1,3 @@
+
+- intensity off after ghostifying
+- count bullets wrap around left and right
