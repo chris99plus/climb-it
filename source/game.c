@@ -26,7 +26,7 @@ struct game_t current_game =
 static inline __attribute__((always_inline))
 void game_options(void)
 {
-	Select_Game(2 /* max_players */, 5 /* max_options */);
+	Select_Game(1 /* max_players */, 1 /* max_options */);
 	current_game.option_players = Vec_Num_Players;
 	current_game.option_mode = Vec_Num_Game;
 }

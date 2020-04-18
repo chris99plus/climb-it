@@ -28,7 +28,12 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=-1
+current_page=2
+FILE_NAME_0=4285;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5CCLIMB_IT_figure_test%5Csource%5Cplayer.c;0;4
+FILE_NAME_1=820;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cplayer.h;0;4
+FILE_NAME_2=272;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cplayer.c;0;4
+FILE_NAME_3=654;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Clevel.c;0;4
+FILE_NAME_4=717;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Clevel.h;0;4
 
 [build-menu]
 NF_00_LB=_Make
