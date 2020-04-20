@@ -44,18 +44,10 @@ struct action_t
 
 // ---------------------------------------------------------------------------
 
-enum player_action_t
-{
-	DEFAULT,
-	JUMP,
-};
-
-// ---------------------------------------------------------------------------
-
 struct player_t
 {
 	enum player_status_t status;	// player status
-	enum player_action_t action;    // player action
+	void (*action)(void);           // player action handler
 	int action_counter;             // action coutner
 	struct offset_t offset;         // player offset to base position
 	int speed;                      // player speed

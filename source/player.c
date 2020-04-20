@@ -25,7 +25,7 @@
 #define PLAYER_POS_X -13 //= (-6 * SF / MOVE_SPEED * DRAW_SPEED)
 
 #undef PLAYER_ANGLE
-#define PLAYER_ANGLE 8   //=> 0 -> 0°; 16 -> -90°; 32 -> 180°; 48 -> 90°; 64 -> 360°
+#define PLAYER_ANGLE 5   //=> 0 -> 0°; 16 -> -90°; 32 -> 180°; 48 -> 90°; 64 -> 360°
 
 // ---------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@
 struct player_t player =
 {
 	.status = DEAD,
-	.action = DEFAULT,
+	.action = 0,
 	.action_counter = 0,
 	.offset = {
 		{
@@ -119,7 +119,7 @@ const struct action_t jump[] = {
 	{MIDDLE, {{0x0e00}, 0}},
 	{MIDDLE, {{0x1000},-1}},
 	{MIDDLE, {{0x1100},-2}},
-	{MIDDLE, {{0x1100},-3}}, // old
+	{MIDDLE, {{0x1100},-3}},
 	{MIDDLE, {{0x1000},-3}},
 	{MIDDLE, {{0x0e00},-2}},
 	{MIDDLE, {{0x0c00},-2}},
@@ -132,30 +132,37 @@ const struct action_t jump[] = {
 };
 
 // ---------------------------------------------------------------------------
+void default_action(void)
+{
+}
+
+void jump_action(void)
+{
+	if (player.action_counter > (int)(sizeof(jump) / sizeof(struct action_t)) - 1)
+	{
+		player.action = default_action;
+	}
+	else
+	{
+		player.offset = jump[player.action_counter].offset;
+		player.action_counter++;
+	}
+}
+
 void move_player(void)
 {
 	check_buttons();
 	
+	/* STATE CHECK */
 	// Simulate Jump
-	if (button_1_1_pressed() && player.action == DEFAULT)
+	if (button_1_1_pressed() && player.action == default_action)
 	{
-		player.action = JUMP;
+		player.action = jump_action;
 		player.action_counter = 0;
 	}
 	
-	// JUMP Action
-	if (player.action == JUMP)
-	{
-		if (player.action_counter > (int)(sizeof(jump) / sizeof(struct action_t)) - 1)
-		{
-			player.action = DEFAULT;
-		}
-		else
-		{
-			player.offset = jump[player.action_counter].offset;
-			player.action_counter++;
-		}
-	}
+	/* ACTION */
+	(*player.action)();
 }
 
 void draw_player(void)
@@ -176,6 +183,7 @@ void draw_player(void)
 void init_player(void)
 {
 	player.status = ALIVE;
+	player.action = default_action;
 }
 
 // ---------------------------------------------------------------------------
