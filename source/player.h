@@ -31,14 +31,9 @@ struct offset_t
 
 // ---------------------------------------------------------------------------
 
-enum player_figure
-{
-	MIDDLE,
-};
-
 struct action_t
 {
-	enum player_figure figure;
+	const struct packet_t *figure;
 	struct offset_t offset;
 };
 
@@ -48,6 +43,7 @@ struct player_t
 {
 	enum player_status_t status;	// player status
 	void (*action)(void);           // player action handler
+	const struct packet_t* figure;
 	int action_counter;             // action coutner
 	struct offset_t offset;         // player offset to base position
 	int speed;                      // player speed

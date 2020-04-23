@@ -29,21 +29,7 @@
 
 // ---------------------------------------------------------------------------
 
-// Player
-struct player_t player =
-{
-	.status = DEAD,
-	.action = 0,
-	.action_counter = 0,
-	.offset = {
-		{
-			.yx = 0,
-		},
-		.angle = 0
-	}
-};
-
-// Figure
+// Figure MIDDLE
 const struct packet_t cyclist[] =
 {
 	{MOVE, { 12 * SF,  6 * SF}}, // bike original (-2|-4)
@@ -99,36 +85,109 @@ const struct packet_t cyclist[] =
 	{STOP, { 0, 0}},
 };
 
+// Figure BACK
+const struct packet_t cyclist_back[] =
+{
+	{MOVE, { 12 * SF,  6 * SF}}, // bike original (-2|-4)
+	{DRAW, { -9 * SF,  3 * SF}},
+	{DRAW, {  0 * SF, -6 * SF}},
+	{DRAW, {  6 * SF,  4 * SF}},
+	{DRAW, {  0 * SF,  8 * SF}},
+	{DRAW, { -6 * SF, -6 * SF}},
+	{MOVE, {  0 * SF,  8 * SF}},
+	{DRAW, {  9 * SF, -3 * SF}},
+	{DRAW, {  0 * SF, -1 * SF}},
+	{MOVE, {  0 * SF, -6 * SF}},
+	{DRAW, {  0 * SF, -2 * SF}},
+	{MOVE, {  1 * SF,  1 * SF}}, // cyclist
+	{DRAW, { -3 * SF,  5 * SF}},
+	{DRAW, { -7 * SF, -2 * SF}},
+	{MOVE, { 10 * SF, -3 * SF}},
+	{DRAW, {  8 * SF, -4 * SF}},
+	{DRAW, {  0 * SF,  2 * SF}},
+	{DRAW, {  4 * SF,  0 * SF}},
+	{DRAW, {  0 * SF, -4 * SF}},
+	{DRAW, { -4 * SF,  0 * SF}},
+	{DRAW, {  0 * SF,  2 * SF}},
+	{MOVE, { -2 * SF,  1 * SF}},
+	{DRAW, { -7 * SF, 10 * SF}},
+	{MOVE, { -5 * SF,  5 * SF}}, // wheel front
+	{DRAW, { -1 * SF,  2 * SF}},
+	{DRAW, { -2 * SF,  1 * SF}},
+	{DRAW, { -2 * SF,  0 * SF}},
+	{DRAW, { -2 * SF, -1 * SF}},
+	{DRAW, { -1 * SF, -2 * SF}},
+	{DRAW, {  0 * SF, -2 * SF}},
+	{DRAW, {  1 * SF, -2 * SF}},
+	{DRAW, {  2 * SF, -1 * SF}},
+	{DRAW, {  2 * SF,  0 * SF}},
+	{DRAW, {  2 * SF,  1 * SF}},
+	{DRAW, {  1 * SF,  2 * SF}},
+	{DRAW, {  0 * SF,  2 * SF}},
+	{MOVE, { -4 * SF, -1 * SF}},
+	{MOVE, {  4 * SF,-13 * SF}}, // wheel back
+	{DRAW, { -1 * SF,  2 * SF}},
+	{DRAW, { -2 * SF,  1 * SF}},
+	{DRAW, { -2 * SF,  0 * SF}},
+	{DRAW, { -2 * SF, -1 * SF}},
+	{DRAW, { -1 * SF, -2 * SF}},
+	{DRAW, {  0 * SF, -2 * SF}},
+	{DRAW, {  1 * SF, -2 * SF}},
+	{DRAW, {  2 * SF, -1 * SF}},
+	{DRAW, {  2 * SF,  0 * SF}},
+	{DRAW, {  2 * SF,  1 * SF}},
+	{DRAW, {  1 * SF,  2 * SF}},
+	{DRAW, {  0 * SF,  2 * SF}},
+	{STOP, { 0, 0}},
+};
+
 // JUMP
 const struct action_t jump[] = {
-	// FIGURE,   YX,   Angle
-	{MIDDLE, {{0x0000}, 1}},
-	{MIDDLE, {{0x0000}, 2}},
-	{MIDDLE, {{0x0000}, 3}},
-	{MIDDLE, {{0x0000}, 4}},
-	{MIDDLE, {{0x0000}, 5}},
-	{MIDDLE, {{0x0000}, 5}},
-	{MIDDLE, {{0x0000}, 5}},
-	{MIDDLE, {{0x0000}, 5}},
-	{MIDDLE, {{0x0200}, 5}},
-	{MIDDLE, {{0x0400}, 5}},
-	{MIDDLE, {{0x0600}, 4}},
-	{MIDDLE, {{0x0800}, 3}},
-	{MIDDLE, {{0x0a00}, 2}},
-	{MIDDLE, {{0x0c00}, 1}},
-	{MIDDLE, {{0x0e00}, 0}},
-	{MIDDLE, {{0x1000},-1}},
-	{MIDDLE, {{0x1100},-2}},
-	{MIDDLE, {{0x1100},-3}},
-	{MIDDLE, {{0x1000},-3}},
-	{MIDDLE, {{0x0e00},-2}},
-	{MIDDLE, {{0x0c00},-2}},
-	{MIDDLE, {{0x0a00},-2}},
-	{MIDDLE, {{0x0800},-1}},
-	{MIDDLE, {{0x0600},-1}},
-	{MIDDLE, {{0x0400},-1}},
-	{MIDDLE, {{0x0200},-0}},
-	{MIDDLE, {{0x0000},-0}},
+	// FIGURE,    YX    , Angle
+	{cyclist_back, {{0x0000}, 1}},
+	{cyclist_back, {{0x0000}, 2}},
+	{cyclist_back, {{0x0000}, 3}},
+	{cyclist_back, {{0x0000}, 4}},
+	{cyclist_back, {{0x0000}, 5}},
+	{cyclist_back, {{0x0000}, 5}},
+	{cyclist_back, {{0x0000}, 5}},
+	{cyclist_back, {{0x0000}, 5}},
+	{cyclist_back, {{0x0200}, 5}},
+	{cyclist, {{0x0400}, 5}},
+	{cyclist, {{0x0600}, 4}},
+	{cyclist, {{0x0800}, 3}},
+	{cyclist, {{0x0a00}, 2}},
+	{cyclist, {{0x0c00}, 1}},
+	{cyclist, {{0x0e00}, 0}},
+	{cyclist, {{0x1000},-1}},
+	{cyclist, {{0x1100},-2}},
+	{cyclist, {{0x1100},-3}},
+	{cyclist, {{0x1000},-3}},
+	{cyclist, {{0x0e00},-2}},
+	{cyclist, {{0x0c00},-2}},
+	{cyclist, {{0x0a00},-2}},
+	{cyclist, {{0x0800},-1}},
+	{cyclist, {{0x0600},-1}},
+	{cyclist, {{0x0400},-1}},
+	{cyclist, {{0x0200},-0}},
+	{cyclist, {{0x0000},-0}},
+};
+
+// ---------------------------------------------------------------------------
+
+// Player
+struct player_t player =
+{
+	.status = DEAD,
+	.action = 0,
+	.action_counter = 0,
+	.offset = {
+		{
+			.yx = 0,
+		},
+		.angle = 0
+	},
+	.figure = cyclist,
 };
 
 // ---------------------------------------------------------------------------
@@ -145,6 +204,7 @@ void jump_action(void)
 	else
 	{
 		player.offset = jump[player.action_counter].offset;
+		player.figure = jump[player.action_counter].figure;
 		player.action_counter++;
 	}
 }
@@ -169,7 +229,7 @@ void draw_player(void)
 {
 	// Rotate bike
 	struct packet_t rotated_cyclist[sizeof(cyclist) / sizeof(struct packet_t)];
-	Rot_VL_Mode((unsigned int)(PLAYER_ANGLE + player.offset.angle), &cyclist, &rotated_cyclist);
+	Rot_VL_Mode((unsigned int)(PLAYER_ANGLE + player.offset.angle), (void*)player.figure, &rotated_cyclist);
 	
 	Reset0Ref();                    // reset beam to center of screen
 	dp_VIA_t1_cnt_lo = MOVE_SPEED;  // set scaling factor for positioning
