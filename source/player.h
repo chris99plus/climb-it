@@ -4,6 +4,7 @@
 
 #pragma once
 #include <vectrex.h>
+#include "type.h"
 
 // ---------------------------------------------------------------------------
 
@@ -11,22 +12,6 @@ enum player_status_t
 {
 	DEAD,
 	ALIVE,
-};
-
-// ---------------------------------------------------------------------------
-
-struct offset_t
-{
-	union
-	{
-	   long int yx;
-	   struct
-	   {
-		   int y;					// y coordinate byte
-		   int x;					// x coordinate byte
-	   };
-	};
-	int angle;
 };
 
 // ---------------------------------------------------------------------------
@@ -42,10 +27,15 @@ struct action_t
 struct player_t
 {
 	enum player_status_t status;	// player status
+	
+	/* Current action */
 	void (*action)(void);           // player action handler
-	const struct packet_t* figure;
 	int action_counter;             // action coutner
-	struct offset_t offset;         // player offset to base position
+	
+	/* Player position & status */
+	const struct packet_t* figure;  // Shape of the current figure
+	struct offset_t offset;         // current player offset to base position
+	struct offset_t loaction;		// current static position and rotation
 	int speed;                      // player speed
 };
 

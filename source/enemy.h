@@ -1,46 +1,30 @@
 // ***************************************************************************
-// level
+// enemy
 // ***************************************************************************
-#include "utils/vector.h"
 
 #pragma once
+#include "type.h"
 
 // ---------------------------------------------------------------------------
 
-enum level_status_t
+#define MAX_ENEMIES 2
+
+// ---------------------------------------------------------------------------
+
+struct enemy_t
 {
-	LEVEL_PLAY,
-	LEVEL_LOST,
-	LEVEL_WON,
+	struct offset_t offset;
+	struct offset_t loaction;
 };
 
 // ---------------------------------------------------------------------------
 
-struct terrain_t
-{
-	int start_y;
-	int start_x;
-	
-	int vector_y;
-	int vector_x;
-};
-
-struct level_t
-{
-	enum level_status_t status;
-	struct terrain_t terrain;
-	unsigned int slope_index;
-	unsigned int difficulty_counter;
-};
+extern struct enemy_t enemies[MAX_ENEMIES];
 
 // ---------------------------------------------------------------------------
 
-extern struct level_t current_level;
-
-// ---------------------------------------------------------------------------
-
-void level_init(void);
-void level_play(void);
+void init_enemies(void);
+void handle_enemies(void);
 
 // ***************************************************************************
 // end of file
