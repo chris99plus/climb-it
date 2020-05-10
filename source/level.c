@@ -14,15 +14,15 @@
 #undef TERRAIN_SLOPE_LOOKUP_COUNT
 #define TERRAIN_SLOPE_LOOKUP_COUNT 5
 
-const int terrain_slope_lookup[TERRAIN_SLOPE_LOOKUP_COUNT][7] = 
+const int terrain_slope_lookup[TERRAIN_SLOPE_LOOKUP_COUNT][12] = 
 {
-	// start  ,   vector, player
-	//  y,   x,   y,   x,   y,   x, angle
-	{ -57, -70,   0, 127, -54, -13,   0},
-	{ -57, -70,  29, 127, -40, -13,   2},
-	{ -57, -70,  65, 127, -26, -13,   5},
-	{ -73, -62,  88, 100, -26, -13,   7},
-	{ -83, -49, 127,  88, -26, -13,  10}
+	// start    , vector    , player           , enemies
+	//   y,    x,    y,    x,    y,    x, angle, start.y, start.x, step.y, step.x, angle, 
+	{  -57,  -70,    0,  127,  -54,  -13,     0,     -57,      87,      0,     -4,     0},
+	{  -57,  -70,   29,  127,  -40,  -13,     2,     -21,      87,     -1,     -5,     2},
+	{  -57,  -70,   65,  127,  -26,  -13,     5,      23,      87,     -3,     -6,     5},
+	{  -73,  -62,   88,  100,  -26,  -13,     7,      35,      60,     -5,     -6,     7},
+	{  -83,  -49,  127,   88,  -26,  -13,    10,      76,      60,     -9,     -6,    10},
 };
 
 // ---------------------------------------------------------------------------
@@ -49,9 +49,16 @@ void adjust_slope(void)
 	current_level.terrain.start_x  = terrain_slope_lookup[current_level.slope_index][1];
 	current_level.terrain.vector_y = terrain_slope_lookup[current_level.slope_index][2];
 	current_level.terrain.vector_x = terrain_slope_lookup[current_level.slope_index][3];
+	
 	player.loaction.y              = terrain_slope_lookup[current_level.slope_index][4];
 	player.loaction.x              = terrain_slope_lookup[current_level.slope_index][5];
 	player.loaction.angle          = terrain_slope_lookup[current_level.slope_index][6];
+	
+	init_enemies(terrain_slope_lookup[current_level.slope_index][7],
+				 terrain_slope_lookup[current_level.slope_index][8],
+				 terrain_slope_lookup[current_level.slope_index][9], 
+				 terrain_slope_lookup[current_level.slope_index][10], 
+				 terrain_slope_lookup[current_level.slope_index][11]);
 }
 
 // ---------------------------------------------------------------------------
@@ -74,7 +81,6 @@ void level_init()
 	adjust_slope();
 	
 	// Initializes the player
-	init_enemies();
 	init_player();
 	
 	current_level.status = LEVEL_PLAY;

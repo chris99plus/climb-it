@@ -193,6 +193,7 @@ struct player_t player =
 		.angle = 0
 	},
 	.figure = cyclist,
+	.speed = 0,
 };
 
 // ---------------------------------------------------------------------------
@@ -226,6 +227,16 @@ void move_player(void)
 	{
 		player.action = jump_action;
 		player.action_counter = 0;
+	}
+	
+	// Simulate Power
+	if (button_1_2_held())
+	{
+		player.speed = 1;
+	}
+	else 
+	{
+		player.speed = 0;
 	}
 	
 	/* ACTION */

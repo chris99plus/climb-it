@@ -13,8 +13,9 @@
 
 struct enemy_t
 {
+	struct offset_t anim_steps;
 	struct offset_t offset;
-	struct offset_t loaction;
+	struct offset_t location;
 };
 
 // ---------------------------------------------------------------------------
@@ -23,7 +24,7 @@ extern struct enemy_t enemies[MAX_ENEMIES];
 
 // ---------------------------------------------------------------------------
 
-void init_enemies(void);
+void init_enemies(int startY, int startX, int stepY, int stepX, int angle);
 void handle_enemies(void);
 
 // ***************************************************************************
