@@ -197,11 +197,11 @@ struct player_t player =
 };
 
 // ---------------------------------------------------------------------------
-void default_action(void)
+static void default_action(void)
 {
 }
 
-void jump_action(void)
+static void jump_action(void)
 {
 	if (player.action_counter > (int)(sizeof(jump) / sizeof(struct action_t)) - 1)
 	{
@@ -216,8 +216,7 @@ void jump_action(void)
 }
 
 // ---------------------------------------------------------------------------
-
-void move_player(void)
+static void move_player(void)
 {
 	check_buttons();
 	
@@ -230,6 +229,7 @@ void move_player(void)
 	}
 	
 	// Simulate Power
+	// TODO: Remove speed
 	if (button_1_2_held())
 	{
 		player.speed = 1;
@@ -243,7 +243,7 @@ void move_player(void)
 	(*player.action)();
 }
 
-void draw_player(void)
+static void draw_player(void)
 {
 	// Rotate bike
 	struct packet_t rotated_cyclist[sizeof(cyclist) / sizeof(struct packet_t)];

@@ -28,17 +28,19 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=3
-FILE_NAME_0=1058;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cplayer.h;0;4
-FILE_NAME_1=0;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cplayer.c;0;4
-FILE_NAME_2=3134;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Clevel.c;0;4
-FILE_NAME_3=360;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Clevel.h;0;4
+current_page=1
+FILE_NAME_0=1070;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cplayer.h;0;4
+FILE_NAME_1=6242;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cplayer.c;0;4
+FILE_NAME_2=2034;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Clevel.c;0;4
+FILE_NAME_3=538;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Clevel.h;0;4
 FILE_NAME_4=211;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cutils%5Ccontroller.h;0;4
 FILE_NAME_5=313;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cgame.c;0;4
-FILE_NAME_6=827;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Ccartridge.c;0;4
+FILE_NAME_6=611;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Ccartridge.c;0;4
 FILE_NAME_7=438;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Ctype.h;0;4
-FILE_NAME_8=1463;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cenemy.c;0;4
-FILE_NAME_9=435;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cenemy.h;0;4
+FILE_NAME_8=2351;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cenemy.c;0;4
+FILE_NAME_9=954;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cenemy.h;0;4
+FILE_NAME_10=0;Batch;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Cmake_opt.bat;0;4
+FILE_NAME_11=8115;Batch;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Cmake.bat;0;4
 
 [build-menu]
 NF_00_LB=_Make
@@ -54,10 +56,10 @@ EX_00_LB=_Execute
 EX_00_CM="%p\\make.bat" run
 EX_00_WD=%p
 CFT_00_LB=_Compile
-CFT_00_CM="%p\\make_opt.bat" build
+CFT_00_CM="%p\\make.bat" compile
 CFT_00_WD=%p
 CFT_01_LB=_Build
-CFT_01_CM="%p\\make.bat" build
+CFT_01_CM="%p\\make_opt.bat" build
 CFT_01_WD=%p
 CFT_02_LB=_Lint
 CFT_02_CM="%p\\make.bat" lint

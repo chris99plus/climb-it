@@ -43,34 +43,32 @@ struct level_t current_level =
 
 // ---------------------------------------------------------------------------
 
-void adjust_slope(void)
+static void adjust_slope(void)
 {
-	current_level.terrain.start_y  = terrain_slope_lookup[current_level.slope_index][0];
-	current_level.terrain.start_x  = terrain_slope_lookup[current_level.slope_index][1];
-	current_level.terrain.vector_y = terrain_slope_lookup[current_level.slope_index][2];
-	current_level.terrain.vector_x = terrain_slope_lookup[current_level.slope_index][3];
+	const int* p = terrain_slope_lookup[current_level.slope_index];
+	current_level.terrain.start_y  = p[0];
+	current_level.terrain.start_x  = p[1];
+	current_level.terrain.vector_y = p[2];
+	current_level.terrain.vector_x = p[3];
 	
-	player.loaction.y              = terrain_slope_lookup[current_level.slope_index][4];
-	player.loaction.x              = terrain_slope_lookup[current_level.slope_index][5];
-	player.loaction.angle          = terrain_slope_lookup[current_level.slope_index][6];
+	player.loaction.y              = p[4];
+	player.loaction.x              = p[5];
+	player.loaction.angle          = p[6];
 	
-	init_enemies(terrain_slope_lookup[current_level.slope_index][7],
-				 terrain_slope_lookup[current_level.slope_index][8],
-				 terrain_slope_lookup[current_level.slope_index][9], 
-				 terrain_slope_lookup[current_level.slope_index][10], 
-				 terrain_slope_lookup[current_level.slope_index][11]);
+	init_enemies(p[7], p[8], p[9], p[10], p[11]);
 }
 
 // ---------------------------------------------------------------------------
 
-void draw_terrain(void)
+static void draw_terrain(void)
 {
 	Reset0Ref();					// reset beam to center of screen
 	dp_VIA_t1_cnt_lo = 0x7f;	    // set scaling factor for positioning
 	Moveto_d(current_level.terrain.start_y, current_level.terrain.start_x);            // move beam to object coordinates
-	dp_VIA_t1_cnt_lo = 0x50;		// set scalinf factor for drawing
+	dp_VIA_t1_cnt_lo = 0x50;		// set scalinf factor for drawing (80d)
 	Draw_Line_d(current_level.terrain.vector_y, current_level.terrain.vector_x);
 	Draw_Line_d(current_level.terrain.vector_y, current_level.terrain.vector_x);
+	//Draw_Line_d(current_level.terrain.vector_y, current_level.terrain.vector_x);
 }
 
 // ---------------------------------------------------------------------------

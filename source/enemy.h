@@ -11,11 +11,19 @@
 
 // ---------------------------------------------------------------------------
 
+enum status_t
+{
+	ACTIVE, INACTIVE
+};
+
+// ---------------------------------------------------------------------------
+
 struct enemy_t
 {
 	struct offset_t anim_steps;
-	struct offset_t offset;
 	struct offset_t location;
+	enum status_t status;
+	int time;
 };
 
 // ---------------------------------------------------------------------------

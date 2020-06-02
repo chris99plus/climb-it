@@ -9,7 +9,7 @@ if [%TARGET%] == [] (
 )
 set OPT=%2
 if [%OPT%] == [] (
-	set OPT=-O0
+	set OPT=-O2
 	REM -fgcse-sm -fgcse-las -fgcse-after-reload
 )
 call :main %TARGET% %OPT%
@@ -291,7 +291,7 @@ exit /B 0
 	)
 	set OPT=%2
 	if [%OPT%] == [] (
-		set "OPT=-O0"
+		set "OPT=-O2"
 	)
 	set PROJECT=
 	for %%i in (.) do @set PROJECT=%%~ni
