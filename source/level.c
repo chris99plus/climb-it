@@ -18,7 +18,8 @@ const int terrain_slope_lookup[TERRAIN_SLOPE_LOOKUP_COUNT][12] =
 {
 	// start    , vector    , player           , enemies
 	//   y,    x,    y,    x,    y,    x, angle, start.y, start.x, step.y, step.x, angle, 
-	{  -57,  -70,    0,  127,  -54,  -13,     0,     -57,      87,      0,     -4,     0},
+	// {  127,  127,    0,  127,  -54,  -13,     0,     -57,      87,      0,     -4,     0},
+	{-120,-36,120,36,-117,-30,13,     -57,      87,      0,     -4,     0},
 	{  -57,  -70,   29,  127,  -40,  -13,     2,     -21,      87,     -1,     -5,     2},
 	{  -57,  -70,   65,  127,  -26,  -13,     5,      23,      87,     -3,     -6,     5},
 	{  -73,  -62,   88,  100,  -26,  -13,     7,      35,      60,     -5,     -6,     7},
@@ -65,10 +66,12 @@ static void draw_terrain(void)
 	Reset0Ref();					// reset beam to center of screen
 	dp_VIA_t1_cnt_lo = 0x7f;	    // set scaling factor for positioning
 	Moveto_d(current_level.terrain.start_y, current_level.terrain.start_x);            // move beam to object coordinates
-	dp_VIA_t1_cnt_lo = 0x50;		// set scalinf factor for drawing (80d)
-	Draw_Line_d(current_level.terrain.vector_y, current_level.terrain.vector_x);
+	dp_VIA_t1_cnt_lo = 0xf0;		// set scalinf factor for drawing (80d, 0x50)
+	Intensity_7F();
 	Draw_Line_d(current_level.terrain.vector_y, current_level.terrain.vector_x);
 	//Draw_Line_d(current_level.terrain.vector_y, current_level.terrain.vector_x);
+	//Draw_Line_d(current_level.terrain.vector_y, current_level.terrain.vector_x);
+	Intensity_5F();
 }
 
 // ---------------------------------------------------------------------------
@@ -114,7 +117,7 @@ void level_play(void)
 		}
 		else
 		{
-			current_level.difficulty_counter++;
+			//current_level.difficulty_counter++;
 		}
 		// end of frame
 	}
