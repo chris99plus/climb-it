@@ -6,6 +6,12 @@
 
 // ---------------------------------------------------------------------------
 
+struct position_t
+{
+	int y;					// y coordinate byte
+	int x;					// x coordinate byte
+};
+
 struct offset_t
 {
 	union

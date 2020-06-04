@@ -37,28 +37,11 @@ const struct packet_t enemy_figure[] =
 
 struct enemy_t enemies[] =
 {
-	{ .time = 0, .location = {{ .yx = 0, }, .angle = 0}, .anim_steps = {{ .yx = 0, }, .angle = 0}, .status = INACTIVE },
-	{ .time = 0, .location = {{ .yx = 0, }, .angle = 0}, .anim_steps = {{ .yx = 0, }, .angle = 0}, .status = INACTIVE },
+	{ .time = 0, .angle = 0, .status = INACTIVE },
+	{ .time = 0, .angle = 0, .status = INACTIVE },
 };
 
 // ---------------------------------------------------------------------------
-
-void move_enemy(struct enemy_t* enemy)
-{
-	if (enemy->status == ACTIVE)
-	{
-		if (enemy->location.x > -60)
-		{
-			enemy->location.y += enemy->anim_steps.y;
-			enemy->location.x += enemy->anim_steps.x;
-			enemy->time++;
-		}
-		else
-		{
-			enemy->status = INACTIVE;
-		}
-	}
-}
 
 void draw_enemy(struct enemy_t* enemy)
 {
@@ -66,11 +49,11 @@ void draw_enemy(struct enemy_t* enemy)
 	{
 		// Rotate enemy
 		struct packet_t rotated_enemy[sizeof(enemy_figure) / sizeof(struct packet_t)];
-		Rot_VL_Mode((unsigned int)(enemy->location.angle), &enemy_figure, &rotated_enemy);
+		Rot_VL_Mode((unsigned int)(enemy->angle), &enemy_figure, &rotated_enemy);
 		
 		Reset0Ref();                    // reset beam to center of screen
 		dp_VIA_t1_cnt_lo = MOVE_SPEED;  // set scaling factor for positioning
-		Moveto_d(enemy->location.y, enemy->location.x);   // move beam to object coordinates
+		Moveto_d(enemy->positions[enemy->time].y, enemy->positions[enemy->time].x);   // move beam to object coordinates
 		dp_VIA_t1_cnt_lo = DRAW_SPEED;  // set scalinf factor for drawing
 		Draw_VLp(&rotated_enemy);     // draw vector list
 	}
@@ -78,21 +61,15 @@ void draw_enemy(struct enemy_t* enemy)
 
 // ---------------------------------------------------------------------------
 
-void init_enemies(int startY, int startX, int stepY, int stepX, int angle)
+void init_enemies(int angle, const struct position_t* positions )
 {
 	for (unsigned int i = 0; i < MAX_ENEMIES; ++i)
 	{
-		enemies[i].anim_steps.y     = stepY;
-		enemies[i].anim_steps.x     = stepX;
-		
-		enemies[i].anim_steps.angle = 0;
-		
-		enemies[i].location.y       = startY;
-		enemies[i].location.x       = startX;
-		enemies[i].location.angle   = angle;
+		enemies[i].positions = positions;
+		enemies[i].angle     = angle;
 	
-		enemies[i].time             = 0;
-		enemies[i].status           = ACTIVE;
+		enemies[i].time      = 0;
+		enemies[i].status    = ACTIVE;
 	}
 }
 
@@ -100,7 +77,22 @@ void handle_enemies(void)
 {
 	for (unsigned int i = 0; i < MAX_ENEMIES; ++i)
 	{
-		move_enemy(&enemies[i]);
 		draw_enemy(&enemies[i]);
+		
+		if (enemies[i].status == ACTIVE)
+		{
+			if (enemies[i].time < ENEMY_POSITIONS_COUNT)
+			{
+				enemies[i].time++;
+			}
+			else
+			{
+				#if 0
+				enemies[i].time = 0;
+				#else
+				enemies[i].status = INACTIVE;
+				#endif
+			}
+		}
 	}
 }

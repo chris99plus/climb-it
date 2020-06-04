@@ -8,6 +8,7 @@
 // ---------------------------------------------------------------------------
 
 #define MAX_ENEMIES 2
+#define ENEMY_POSITIONS_COUNT 32
 
 // ---------------------------------------------------------------------------
 
@@ -20,8 +21,8 @@ enum status_t
 
 struct enemy_t
 {
-	struct offset_t anim_steps;
-	struct offset_t location;
+	int angle;
+	const struct position_t* positions;
 	enum status_t status;
 	int time;
 };
@@ -32,7 +33,7 @@ extern struct enemy_t enemies[MAX_ENEMIES];
 
 // ---------------------------------------------------------------------------
 
-void init_enemies(int startY, int startX, int stepY, int stepX, int angle);
+void init_enemies(int angle, const struct position_t* positions );
 void handle_enemies(void);
 
 // ***************************************************************************
