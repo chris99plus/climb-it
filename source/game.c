@@ -42,7 +42,7 @@ void game_init(void)
 	disable_controller_2_y();
 	
 	// set player data
-	current_game.lives[0] = 3; 
+	current_game.lives[0] = 1; 
 	current_game.level[0] = 1;
 	current_game.score[0] = 0;
 	current_game.score[1] = 0;

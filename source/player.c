@@ -2,6 +2,7 @@
 #include "utils/controller.h"
 #include "player.h"
 #include "level.h"
+#include "enemy.h"
 
 // ---------------------------------------------------------------------------
 // SPEEDS
@@ -226,6 +227,7 @@ static void move_player(void)
 	{
 		player.action = jump_action;
 		player.action_counter = 0;
+		player_jumped();
 	}
 	
 	// Simulate Power

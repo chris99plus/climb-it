@@ -14,7 +14,7 @@
 #undef TERRAIN_SLOPE_LOOKUP_COUNT
 #define TERRAIN_SLOPE_LOOKUP_COUNT 6
 
-/* Created by the calculate-level.py script */
+/* Created by calculate-level.py script */
 const int terrain_slope_lookup[TERRAIN_SLOPE_LOOKUP_COUNT][7] = 
 {
 	// | start | vector| player| player/enemy |
@@ -27,7 +27,7 @@ const int terrain_slope_lookup[TERRAIN_SLOPE_LOOKUP_COUNT][7] =
 	{-84,-110,64,120,-71,-90,5},
 };
 
-/* Created by the calculate-level.py script */
+/* Created by calculate-level.py script */
 const struct position_t enemy_position_lookup[TERRAIN_SLOPE_LOOKUP_COUNT][ENEMY_POSITIONS_COUNT] =
 {
 	{{-20,117},{-20,110},{-20,103},{-20,96},{-20,89},{-20,82},{-20,74},{-20,67},{-20,60},{-20,53},{-20,46},{-20,39},{-20,32},{-20,25},{-20,18},{-20,11},{-20,4},{-20,-3},{-20,-11},{-20,-18},{-20,-25},{-20,-32},{-20,-39},{-20,-46},{-20,-53},{-20,-60},{-20,-67},{-20,-74},{-20,-81},{-20,-89},{-20,-96},{-20,-103}},
@@ -68,7 +68,7 @@ static void adjust_slope(void)
 	player.loaction.x              = p[5];
 	player.loaction.angle          = p[6];
 	
-	init_enemies(p[6], enemy_position_lookup[current_level.slope_index]);
+	init_enemies(p[6], enemy_position_lookup[current_level.slope_index], 11, 20);
 }
 
 // ---------------------------------------------------------------------------
@@ -118,6 +118,7 @@ void level_play(void)
 		handle_player();
 		// TODO
 		
+		#if 1
 		/* TESTING OF THE SLOPE */
 		if (current_level.difficulty_counter > 150) 
 		{
@@ -129,6 +130,12 @@ void level_play(void)
 		{
 			current_level.difficulty_counter++;
 		}
+		
+		#else
+		#endif
+		
+		if (player_failed()) player.status = DEAD;
+		
 		// end of frame
 	}
 }	
