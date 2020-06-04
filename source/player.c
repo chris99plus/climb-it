@@ -222,7 +222,7 @@ static void move_player(void)
 	
 	/* STATE CHECK */
 	// Simulate Jump
-	if (button_1_1_pressed() && player.action == default_action)
+	if (button_1_4_pressed() && player.action == default_action)
 	{
 		player.action = jump_action;
 		player.action_counter = 0;
