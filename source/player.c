@@ -264,6 +264,11 @@ void init_player(void)
 {
 	player.status = ALIVE;
 	player.action = default_action;
+	player.figure = cyclist;
+	player.speed = 0;
+	player.action_counter = 0;
+	player.offset.yx = 0;
+	player.offset.angle = 0;
 }
 
 // ---------------------------------------------------------------------------

@@ -28,17 +28,16 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=2
+current_page=1
 FILE_NAME_0=1070;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cplayer.h;0;4
-FILE_NAME_1=624;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cplayer.c;0;4
-FILE_NAME_2=792;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Clevel.c;0;4
-FILE_NAME_3=538;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Clevel.h;0;4
-FILE_NAME_4=211;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cutils%5Ccontroller.h;0;4
-FILE_NAME_5=313;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cgame.c;0;4
-FILE_NAME_6=611;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Ccartridge.c;0;4
-FILE_NAME_7=438;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Ctype.h;0;4
-FILE_NAME_8=1175;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cenemy.c;0;4
-FILE_NAME_9=954;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cenemy.h;0;4
+FILE_NAME_1=6201;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cplayer.c;0;4
+FILE_NAME_2=4796;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Clevel.c;0;4
+FILE_NAME_3=346;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Clevel.h;0;4
+FILE_NAME_4=1190;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cgame.c;0;4
+FILE_NAME_5=611;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Ccartridge.c;0;4
+FILE_NAME_6=361;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Ctype.h;0;4
+FILE_NAME_7=2504;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cenemy.c;0;4
+FILE_NAME_8=1103;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cenemy.h;0;4
 
 [build-menu]
 NF_00_LB=_Make

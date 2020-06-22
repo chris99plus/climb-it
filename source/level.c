@@ -88,6 +88,10 @@ static void draw_terrain(void)
 
 void level_init()
 {
+	// initialize level
+	current_level.slope_index = 0;
+	current_level.difficulty_counter = 0;
+	
 	// Adjust parameters of level and player
 	adjust_slope();
 	
@@ -134,6 +138,7 @@ void level_play(void)
 		#else
 		#endif
 		
+		// Collision detection
 		if (player_failed()) player.status = DEAD;
 		
 		// end of frame
