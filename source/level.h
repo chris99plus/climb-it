@@ -5,6 +5,9 @@
 
 #pragma once
 
+#undef ENEMIES_PER_LEVEL
+#define ENEMIES_PER_LEVEL 10
+
 // ---------------------------------------------------------------------------
 
 enum level_status_t
@@ -16,21 +19,12 @@ enum level_status_t
 
 // ---------------------------------------------------------------------------
 
-struct terrain_t
-{
-	int start_y;
-	int start_x;
-	
-	int vector_y;
-	int vector_x;
-};
-
 struct level_t
 {
 	enum level_status_t status;
-	struct terrain_t terrain;
-	unsigned int slope_index;
-	unsigned int difficulty_counter;
+	unsigned int score;
+	char print_score[5];
+	unsigned int enemies_left;
 };
 
 // ---------------------------------------------------------------------------
@@ -41,6 +35,14 @@ extern struct level_t current_level;
 
 void level_init(void);
 void level_play(void);
+void increment_score(void);
+
+inline void enemy_mastered(void)
+{
+	current_level.score++;
+	current_level.enemies_left--;
+	increment_score();
+}
 
 // ***************************************************************************
 // end of file

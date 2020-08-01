@@ -3,6 +3,7 @@
 #include "player.h"
 #include "level.h"
 #include "enemy.h"
+#include "terrain.h"
 
 // ---------------------------------------------------------------------------
 // SPEEDS
@@ -15,17 +16,6 @@
 // Scaling Factor
 #undef SF
 #define SF 8
-
-// Player Positions --> Irrelevant (set by level)
-/*#undef START_PLAYER_POS_Y
-#define START_PLAYER_POS_Y -26 //= (-12 * SF / MOVE_SPEED * DRAW_SPEED)
-
-#undef START_PLAYER_POS_X
-#define START_PLAYER_POS_X -13 //= (-6 * SF / MOVE_SPEED * DRAW_SPEED)
-
-#undef START_PLAYER_ANGLE
-#define START_PLAYER_ANGLE 5   //=> 0 -> 0°; 16 -> -90°; 32 -> 180°; 48 -> 90°; 64 -> 360°
-*/
 
 // ---------------------------------------------------------------------------
 
@@ -187,7 +177,7 @@ struct player_t player =
 		},
 		.angle = 0
 	},
-	.loaction = {
+	.location = {
 		{
 			.yx = 0,
 		},
@@ -219,6 +209,10 @@ static void jump_action(void)
 // ---------------------------------------------------------------------------
 static void move_player(void)
 {
+	player.location.y = get_bike_pos_y();
+	player.location.x = get_bike_pos_x();
+	player.location.angle = get_bike_pos_angle();
+	
 	check_buttons();
 	
 	/* STATE CHECK */
@@ -249,11 +243,11 @@ static void draw_player(void)
 {
 	// Rotate bike
 	struct packet_t rotated_cyclist[sizeof(cyclist) / sizeof(struct packet_t)];
-	Rot_VL_Mode((unsigned int)(player.loaction.angle + player.offset.angle), (void*)player.figure, &rotated_cyclist);
+	Rot_VL_Mode((unsigned int)(player.location.angle + player.offset.angle), (void*)player.figure, &rotated_cyclist);
 	
 	Reset0Ref();                    // reset beam to center of screen
 	dp_VIA_t1_cnt_lo = MOVE_SPEED;  // set scaling factor for positioning
-	Moveto_d(player.loaction.y + player.offset.y, player.loaction.x + player.offset.x);   // move beam to object coordinates
+	Moveto_d(player.location.y + player.offset.y, player.location.x + player.offset.x);   // move beam to object coordinates
 	dp_VIA_t1_cnt_lo = DRAW_SPEED;  // set scalinf factor for drawing
 	Draw_VLp(&rotated_cyclist);     // draw vector list
 }

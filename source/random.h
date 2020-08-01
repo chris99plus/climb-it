@@ -1,43 +1,27 @@
 // ***************************************************************************
-// enemy
+// random - simple pseudo random number generator (rng)
 // ***************************************************************************
 
 #pragma once
-#include "type.h"
-
-// ---------------------------------------------------------------------------
- 
-#define ENEMY_POSITIONS_COUNT 32
-#define ENEMY_MIN_JUMP 11
-#define ENEMY_MAX_JUMP 20
 
 // ---------------------------------------------------------------------------
 
-enum status_t
+struct rng_t
 {
-	ACTIVE, INACTIVE, FINISHED
+	unsigned int a;
+	unsigned int b;
+	unsigned int c;
+	unsigned int x;
 };
 
 // ---------------------------------------------------------------------------
 
-struct enemy_t
-{
-	enum status_t status;
-	unsigned int time;
-	unsigned int cooldown;
-	int jumped_over;
-};
+extern struct rng_t random;
 
 // ---------------------------------------------------------------------------
 
-extern struct enemy_t enemy;
-
-// ---------------------------------------------------------------------------
-
-void init_enemies(void);
-void handle_enemies(void);
-void player_jumped(void);
-int player_failed(void);
+void init_random_generator(unsigned int seed_1,unsigned int seed_2, unsigned int seed_3);
+unsigned int get_random(void);
 
 // ***************************************************************************
 // end of file

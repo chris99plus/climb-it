@@ -11,24 +11,20 @@
 
 // ---------------------------------------------------------------------------
 
-struct game_t current_game =
-{
-	.option_players = 0,
-	.option_mode = 0,
-	.lives = { 0, 0},
-	.level = { 0, 0},
-	.score = { 0, 0},
-	.player = 0,
-};
-
-// ---------------------------------------------------------------------------
-
 static inline __attribute__((always_inline))
 void game_options(void)
 {
-	Select_Game(1 /* max_players */, 1 /* max_options */);
-	current_game.option_players = Vec_Num_Players;
-	current_game.option_mode = Vec_Num_Game;
+	unsigned int delay = 255;
+
+	do
+	{
+		Sync();
+		Intensity_5F();
+		print_string(0, -90, "START THE GAME\x80");
+		print_string(-20, -70, "--> PRESS 4\x80");
+		check_buttons();
+	}
+	while((--delay) && !button_1_4_pressed());
 }
 
 // ---------------------------------------------------------------------------
@@ -40,25 +36,6 @@ void game_init(void)
 	enable_controller_1_y();
 	disable_controller_2_x();
 	disable_controller_2_y();
-	
-	// set player data
-	current_game.lives[0] = 1; 
-	current_game.level[0] = 1;
-	current_game.score[0] = 0;
-	current_game.score[1] = 0;
-
-	if (current_game.option_players == 2)
-	{
-		current_game.lives[1] = 3; 
-		current_game.level[1] = 1;
-	}
-	else
-	{
-		current_game.lives[1] = 0; 
-		current_game.level[1] = 0;
-	}
-
-	current_game.player = 0;
 }
 
 // ---------------------------------------------------------------------------
@@ -66,37 +43,39 @@ void game_init(void)
 
 void game_play(void)
 {
-	while(current_game.lives[0] + current_game.lives[1])
+	level_init();
+	level_play();
+
+	if (current_level.status == LEVEL_WON)
 	{
-		level_init();
-		level_play();
-
-		if (current_level.status == LEVEL_WON)
-		{
-			++current_game.level[current_game.player];
-		}
-		else
-		{
-			if (--current_game.lives[current_game.player] == 0)
-			{
-				game_over();
-			}
-
-			current_game.player = (current_game.option_players - 1) - current_game.player;
-		}
+		game_won();
+	}
+	else
+	{
+		game_over();
 	}
 }
 
 // ---------------------------------------------------------------------------
 
+void game_won(void)
+{
+	unsigned int delay = 255;
+
+	do
+	{
+		Sync();
+		Intensity_5F();
+		print_string(0, -50, "YOU WON\x80");
+		print_string(-20, -70, "SCORE:\x80");
+		print_string(-20, 0, current_level.print_score);
+		check_buttons();
+	}
+	while((--delay) && !button_1_4_pressed());
+}
+
 void game_over(void)
 {
-	// update system high score
-	int score[7];
-	Clear_Score(&score);
-	Add_Score_a(current_game.score[current_game.player], &score);
-	New_High_Score(&score, (void*) &Vec_High_Score);
-
 	unsigned int delay = 150;
 
 	do
@@ -104,9 +83,8 @@ void game_over(void)
 		Sync();
 		Intensity_5F();
 		print_string(0, -64, "GAME OVER\x80");
-		print_string(20, -100, "PLAYER\x80");
-		print_unsigned_int(20, 40, current_game.player + 1);
-		Print_Ships(0x69, current_game.lives[current_game.player], 0xC0E2);
+		print_string(-20, -70, "SCORE:\x80");
+		print_string(-20, 0, current_level.print_score);
 		check_buttons();
 	}
 	while((--delay) && !button_1_4_pressed());

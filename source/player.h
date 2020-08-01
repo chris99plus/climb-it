@@ -35,7 +35,7 @@ struct player_t
 	/* Player position & status */
 	const struct packet_t* figure;  // Shape of the current figure
 	struct offset_t offset;         // current player offset to base position
-	struct offset_t loaction;		// current static position and rotation
+	struct offset_t location;		// current static position and rotation
 	int speed;                      // player speed
 };
 

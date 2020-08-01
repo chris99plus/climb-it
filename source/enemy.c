@@ -6,6 +6,9 @@
 #include "utils/vector.h"
 #include "enemy.h"
 #include "player.h"
+#include "terrain.h"
+#include "random.h"
+#include "level.h"
 
 // ---------------------------------------------------------------------------
 // SPEEDS
@@ -35,89 +38,85 @@ const struct packet_t enemy_figure[] =
 
 // ---------------------------------------------------------------------------
 
-struct enemy_t enemies[] =
+struct enemy_t enemy =
 {
-	{ .time = 0, .angle = 0, .status = INACTIVE, .jumped_over = 0 },
+	.time = 0,
+	.status = INACTIVE, 
+	.jumped_over = 0 
 };
 
 // ---------------------------------------------------------------------------
 
-void draw_enemy(struct enemy_t* enemy)
+void draw_enemy()
 {
 	// Rotate enemy
 	struct packet_t rotated_enemy[sizeof(enemy_figure) / sizeof(struct packet_t)];
-	Rot_VL_Mode((unsigned int)(enemy->angle), &enemy_figure, &rotated_enemy);
+	Rot_VL_Mode((unsigned int)(get_enemy_angle()), &enemy_figure, &rotated_enemy);
 	
 	Reset0Ref();                    // reset beam to center of screen
 	dp_VIA_t1_cnt_lo = MOVE_SPEED;  // set scaling factor for positioning
-	Moveto_d(enemy->positions[enemy->time].y, enemy->positions[enemy->time].x);   // move beam to object coordinates
+	Moveto_d(get_enemy_pos(enemy.time).y, get_enemy_pos(enemy.time).x);   // move beam to object coordinates
 	dp_VIA_t1_cnt_lo = DRAW_SPEED;  // set scalinf factor for drawing
 	Draw_VLp(&rotated_enemy);     // draw vector list
 }
 
 // ---------------------------------------------------------------------------
 
-void init_enemies(int angle, const struct position_t* positions, int min_jump_point, int max_jump_point)
+void reset_enemy()
 {
-	for (unsigned int i = 0; i < MAX_ENEMIES; ++i)
-	{
-		enemies[i].min_jump_point = min_jump_point;
-		enemies[i].max_jump_point = max_jump_point;
-		
-		enemies[i].positions = positions;
-		enemies[i].angle     = angle;
+	enemy.time        = 0;
+	enemy.status      = INACTIVE;
 	
-		enemies[i].time      = 0;
-		enemies[i].status    = ACTIVE;
-		
-		enemies[i].jumped_over = 0;
-	}
+	enemy.jumped_over = 0;
+	enemy.cooldown    = ((DIFFICULTY_LEVELS - get_difficulty()) >> 1) * (get_random() << 1);
+}
+
+void init_enemies()
+{
+	init_random_generator(VIA_t2_hi,~VIA_t2_hi,VIA_t2_hi << 4);
+	reset_enemy();
 }
 
 void handle_enemies(void)
 {
-	for (unsigned int i = 0; i < MAX_ENEMIES; ++i)
+	if (enemy.status == ACTIVE)
 	{
-		if (enemies[i].status == ACTIVE)
+		draw_enemy();
+		
+		if (enemy.time < ENEMY_POSITIONS_COUNT)
 		{
-			draw_enemy(&enemies[i]);
-			
-			if (enemies[i].time < ENEMY_POSITIONS_COUNT)
-			{
-				enemies[i].time++;
-			}
-			else
-			{
-				enemies[i].status = FINISHED;
-				#if 0
-				//enemies[i].time = 0;
-				#else
-				
-				#endif
-			}
+			enemy.time++;
 		}
+		else
+		{
+			enemy.status = FINISHED;
+		}
+	} 
+	else if (enemy.status == FINISHED)
+	{
+		if (enemy.jumped_over) enemy_mastered();
+		reset_enemy();
+	}
+	else
+	{
+		if (enemy.cooldown == 0) enemy.status = ACTIVE;
+		else enemy.cooldown--;
 	}
 }
 
 void player_jumped(void)
 {
-	for (unsigned int i = 0; i < MAX_ENEMIES; ++i)
+	if (enemy.status == ACTIVE && enemy.time > ENEMY_MIN_JUMP && enemy.time < ENEMY_MAX_JUMP)
 	{
-		if (enemies[i].status == ACTIVE && enemies[i].time > enemies[i].min_jump_point && enemies[i].time < enemies[i].max_jump_point)
-		{
-			enemies[i].jumped_over = 1;
-		}
+		enemy.jumped_over = 1;
 	}
 }
 
 int player_failed(void)
 {
-	for (unsigned int i = 0; i < MAX_ENEMIES; ++i)
+	if (!enemy.jumped_over && enemy.status == FINISHED)
 	{
-		if (!enemies[i].jumped_over && enemies[i].status == FINISHED)
-		{
-			return 1;
-		}
+		return 1;
 	}
 	
 	return 0;
