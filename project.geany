@@ -28,23 +28,7 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=2
-FILE_NAME_0=959;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cplayer.h;0;4
-FILE_NAME_1=337;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cplayer.c;0;4
-FILE_NAME_2=1462;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Clevel.c;0;4
-FILE_NAME_3=404;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Clevel.h;0;4
-FILE_NAME_4=611;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Ccartridge.c;0;4
-FILE_NAME_5=286;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Ctype.h;0;4
-FILE_NAME_6=2400;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cenemy.c;0;4
-FILE_NAME_7=675;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cenemy.h;0;4
-FILE_NAME_8=3211;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cterrain.c;0;4
-FILE_NAME_9=954;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cterrain.h;0;4
-FILE_NAME_10=642;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Crandom.h;0;4
-FILE_NAME_11=937;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Crandom.c;0;4
-FILE_NAME_12=755;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cutils%5Cprint.h;0;4
-FILE_NAME_13=1455;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cdebug%5Cdebug.c;0;4
-FILE_NAME_14=185;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cgame.h;0;4
-FILE_NAME_15=633;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cchris%5CDocuments%5CDokumente%5CHochschule%5CSemester_6%5CFortgeschrittenes%20C%20und%20Assembler%5CVectrex%5CProjects%5Cclimb-it%5Csource%5Cgame.c;0;4
+current_page=-1
 
 [build-menu]
 NF_00_LB=_Make

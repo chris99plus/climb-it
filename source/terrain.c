@@ -4,7 +4,7 @@
 /*
  * Data of the terrain
  * 
- * > Created by calculate-level.py script
+ * > Created by /scripts/calculate-level.py script
  * |--------------------------------------|
  * | start | vector| player| player/enemy | 
  * | y | x | y | x | y | x | angle        |
@@ -22,7 +22,7 @@ const int terrain_lookup[TERRAIN_COUNTS][7] =
 /*
  * Data of enemy locations for different slopes
  * 
- * > Created by calculate-level.py script
+ * > Created by /scripts/calculate-level.py script
  */
 const struct position_t enemy_positions_lookup[TERRAIN_COUNTS][TERRAIN_ENEMY_POSITION_COUNT] = 
 {

@@ -12,7 +12,7 @@
 // ---------------------------------------------------------------------------
 
 static inline __attribute__((always_inline))
-void game_options(void)
+void game_wait(void)
 {
 	unsigned int delay = 255;
 
@@ -94,7 +94,7 @@ void game_over(void)
 
 int game(void)
 {
-	game_options();
+	game_wait();
 
 	if (button_1_4_held())
 	{

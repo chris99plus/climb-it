@@ -133,7 +133,7 @@ const struct packet_t cyclist_back[] =
 
 // JUMP
 const struct action_t jump[] = {
-	// FIGURE,    YX    , Angle
+	// FIGURE    ,    YX    , Angle
 	{cyclist_back, {{0x0000}, 1}},
 	{cyclist_back, {{0x0000}, 2}},
 	{cyclist_back, {{0x0000}, 3}},
@@ -183,8 +183,7 @@ struct player_t player =
 		},
 		.angle = 0
 	},
-	.figure = cyclist,
-	.speed = 0,
+	.figure = cyclist
 };
 
 // ---------------------------------------------------------------------------
@@ -216,23 +215,11 @@ static void move_player(void)
 	check_buttons();
 	
 	/* STATE CHECK */
-	// Simulate Jump
 	if (button_1_4_pressed() && player.action == default_action)
 	{
 		player.action = jump_action;
 		player.action_counter = 0;
 		player_jumped();
-	}
-	
-	// Simulate Power
-	// TODO: Remove speed
-	if (button_1_2_held())
-	{
-		player.speed = 1;
-	}
-	else 
-	{
-		player.speed = 0;
 	}
 	
 	/* ACTION */
@@ -259,7 +246,6 @@ void init_player(void)
 	player.status = ALIVE;
 	player.action = default_action;
 	player.figure = cyclist;
-	player.speed = 0;
 	player.action_counter = 0;
 	player.offset.yx = 0;
 	player.offset.angle = 0;

@@ -7,9 +7,9 @@
 
 // ---------------------------------------------------------------------------
  
-#define ENEMY_POSITIONS_COUNT 32
-#define ENEMY_MIN_JUMP 11
-#define ENEMY_MAX_JUMP 20
+#define ENEMY_POSITIONS_COUNT 32 	// numbers of positions on the screen
+#define ENEMY_MIN_JUMP 11			// minimum time the player has to jump
+#define ENEMY_MAX_JUMP 20			// maximum time the player has to jump
 
 // ---------------------------------------------------------------------------
 

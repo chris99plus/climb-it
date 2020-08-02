@@ -29,6 +29,9 @@ struct level_t current_level =
 	.enemies_left = 0
 };
 
+// ---------------------------------------------------------------------------
+
+// to increment the printed score by 5
 void increment_score()
 {	
 	unsigned int carry = 0;
@@ -61,8 +64,6 @@ void increment_score()
 	current_level.print_score[0] += carry;
 }
 
-// ---------------------------------------------------------------------------
-
 void level_init()
 {
 	init_terrain();
@@ -78,9 +79,7 @@ void level_init()
 	current_level.print_score[2] = '0';
 	current_level.print_score[3] = '0';
 	current_level.print_score[4] = '\x80';
-}	
-
-// ---------------------------------------------------------------------------
+}
 
 void level_play(void)
 {

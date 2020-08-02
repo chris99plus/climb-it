@@ -13,8 +13,8 @@ const struct cartridge_t game_header __attribute__((section(".cartridge"), used)
 	.music 			= &Vec_Music_1,		// this is the Vectrex startup tune 
 	.title_height 	= -8,
 	.title_width 	= 80,
-	.title_y 		= 24,
-	.title_x 		= -86,
+	.title_y 		= 10,
+	.title_x 		= -60,
 	.title 			= "CLIMB IT\x80" 	// note that \x00 is automatically appended!
 };
 

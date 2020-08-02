@@ -25,7 +25,6 @@
 
 // ---------------------------------------------------------------------------
 
-// JUMP
 const struct packet_t enemy_figure[] =
 {
 	{DRAW, {  0 * SF,  2 * SF}},
@@ -68,6 +67,8 @@ void reset_enemy()
 	enemy.status      = INACTIVE;
 	
 	enemy.jumped_over = 0;
+	
+	// random cooldown gets less when difficulty increases
 	enemy.cooldown    = ((DIFFICULTY_LEVELS - get_difficulty()) >> 1) * (get_random() << 1);
 }
 
